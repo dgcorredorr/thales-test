@@ -1,5 +1,6 @@
 package com.thales.test.application.controller;
 
+import com.thales.test.application.data.ResponseMessageDto;
 import com.thales.test.domain.data.EmployeeDto;
 import com.thales.test.domain.port.api.EmployeeServicePort;
 import org.junit.jupiter.api.BeforeEach;
@@ -119,11 +120,12 @@ class EmployeeControllerTest {
         EntityNotFoundException ex = new EntityNotFoundException("Employee not found");
 
         // Act
-        ResponseEntity<String> response = employeeController.handleEntityNotFoundException(ex);
+        ResponseEntity<ResponseMessageDto> response = employeeController.handleEntityNotFoundException(ex);
 
         // Assert
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
-        assertEquals("Employee not found", response.getBody());
+        assertEquals("Employee not found", response.getBody().getMessage());
+        assertEquals(HttpStatus.NOT_FOUND, response.getBody().getStatus());
     }
 
     @Test
@@ -132,23 +134,12 @@ class EmployeeControllerTest {
         DataIntegrityViolationException ex = new DataIntegrityViolationException("Data integrity violation");
 
         // Act
-        ResponseEntity<String> response = employeeController.handleDataIntegrityViolationException(ex);
+        ResponseEntity<ResponseMessageDto> response = employeeController.handleDataIntegrityViolationException(ex);
 
         // Assert
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-        assertEquals("Data integrity violation", response.getBody());
+        assertEquals("Data integrity violation", response.getBody().getMessage());
+        assertEquals(HttpStatus.BAD_REQUEST, response.getBody().getStatus());
     }
 
-    @Test
-    void handleException_ReturnsInternalServerErrorResponse() {
-        // Arrange
-        Exception ex = new Exception("Internal Server Error");
-
-        // Act
-        ResponseEntity<String> response = employeeController.handleException(ex);
-
-        // Assert
-        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
-        assertEquals("Internal Server Error", response.getBody());
-    }
 }

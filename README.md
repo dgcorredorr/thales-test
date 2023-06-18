@@ -6,6 +6,26 @@ This README provides information about the project, its dependencies, and docume
 
 The project consists of an Angular frontend application and a Spring Boot backend service. The Angular application is responsible for the user interface, while the Spring Boot service handles the backend logic and data storage.
 
+### Paradigms and Principles
+
+The project follows the principles of Object-Oriented Programming (OOP) and adheres to the SOLID principles.
+
+- Object-Oriented Programming: The codebase is organized into packages representing different layers of the application, such as `application`, `domain`, and `infrastructure`. These packages contain classes that encapsulate related functionality using objects, classes, and inheritance.
+- SOLID Principles: The project applies SOLID principles to enhance maintainability, testability, and extensibility.
+  - Single Responsibility Principle (SRP): Each class has a single responsibility, ensuring that it has only one reason to change.
+  - Open/Closed Principle (OCP): The code is open for extension but closed for modification, allowing new features to be added without modifying existing code.
+  - Liskov Substitution Principle (LSP): Subtypes can be substituted for their base types, ensuring that inheritance and polymorphism are used correctly.
+  - Interface Segregation Principle (ISP): Clients should not be forced to depend on interfaces they do not use. Interfaces are tailored to specific clients to avoid unnecessary dependencies.
+  - Dependency Inversion Principle (DIP): High-level modules should not depend on low-level modules. Both should depend on abstractions, allowing for loose coupling and easier testing.
+
+### Unit Testing
+
+The project includes unit tests implemented using Mockito and JUnit 5. The tests focus on verifying the behavior and correctness of individual components, such as controller and service classes.
+
+The use of unit testing helps ensure that each unit of code functions as expected and facilitates the identification and resolution of issues during development.
+
+The tests are located in the `test` directory and follow a similar package structure as the main source code.
+
 ### Dependencies
 
 #### Angular Frontend Application (package.json)
@@ -41,8 +61,8 @@ The project consists of an Angular frontend application and a Spring Boot backen
 
 To run the project, you need to have the following dependencies installed:
 
-- Node.js
-- Angular CLI
+- Node.js 18
+- Angular CLI 15
 - Java 8 or higher
 - Maven
 - WildFly 24
@@ -70,6 +90,10 @@ To build the application, run `npm run build` or `ng build`. The build artifacts
 ## Spring Boot Backend Service
 
 The Spring Boot backend service provides the RESTful APIs for managing employees.
+
+### Development Server
+
+To start the development server, run `mvn spring-boot:run -Pdev` from the `backend` directory. The application will be accessible at `http://localhost:8080`.
 
 ### Building the Application
 

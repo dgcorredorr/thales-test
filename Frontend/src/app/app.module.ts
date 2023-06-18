@@ -19,12 +19,18 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { EmployeeModalComponent } from './employee-modal/employee-modal.component';
 import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
+import { EmployeeManagementComponent } from './employee-management/employee-management.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeModalComponent,
-    DeleteConfirmationComponent
+    DeleteConfirmationComponent,
+    EmployeeManagementComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
