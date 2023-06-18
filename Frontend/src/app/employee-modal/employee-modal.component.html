@@ -1,0 +1,38 @@
+<div class="mat-dialog-container">
+    <h1 mat-dialog-title class="edit-dialog-title">Edit Employee</h1>
+    <div mat-dialog-content class="edit-dialog-content">
+        <div class="edit-dialog-row">
+            <div class="edit-dialog-column">
+                <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput [(ngModel)]="employee.firstName" name="firstName" required>
+                </mat-form-field>
+            </div>
+            <div class="edit-dialog-column">
+                <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput [(ngModel)]="employee.lastName" name="lastName" required>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="edit-dialog-row">
+            <div class="edit-dialog-column">
+                <mat-form-field>
+                    <mat-label>Position</mat-label>
+                    <input matInput [(ngModel)]="employee.position" name="position" required>
+                </mat-form-field>
+            </div>
+            <div class="edit-dialog-column">
+                <mat-form-field>
+                    <mat-label>Salary</mat-label>
+                    <input matInput [(ngModel)]="employee.salary" name="salary" required>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+    </div>
+    <div mat-dialog-actions class="edit-dialog-actions">
+        <button mat-button class="edit-dialog-cancel" (click)="onCancelClick()">Cancel</button>
+        <button mat-button color="primary" class="edit-dialog-save" (click)="onSaveClick()">Save</button>
+    </div>
+</div>

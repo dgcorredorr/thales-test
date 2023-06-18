@@ -1,0 +1,20 @@
+.delete-dialog-title {
+    font-size: 20px;
+  }
+  
+  .delete-dialog-content {
+    margin-bottom: 20px;
+  }
+  
+  .delete-dialog-actions {
+    justify-content: flex-end;
+  }
+  
+  .delete-dialog-cancel {
+    margin-right: 10px;
+  }
+  
+  .delete-dialog-delete {
+    margin-left: auto;
+  }
+  
